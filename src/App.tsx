@@ -2,7 +2,6 @@ import { useState, useMemo, useEffect, useRef } from 'react';
 import { Check, Star, ArrowRight } from 'lucide-react';
 
 import ConversionCalculator from './components/ConversionCalculator';
-import CheckoutSimulator from './components/CheckoutSimulator';
 import ReviewsSection from './components/ReviewsSection';
 import { packages } from './data';
 import img1 from './assets/images/image_product.png';
@@ -10,8 +9,6 @@ import img2 from './assets/images/product image 4.png';
 import img3 from './assets/images/product image 3.png';
 
 export default function App() {
-  const [isCheckoutOpen, setIsCheckoutOpen] = useState<boolean>(false);
-  const [selectedPackageId, setSelectedPackageId] = useState<string>('pkg-pro');
   const [imgIndex, setImgIndex] = useState(0);
   const [showSticky, setShowSticky] = useState(true);
   const images = [img1, img2, img3];
@@ -35,9 +32,8 @@ export default function App() {
 
   const activePackage = useMemo(() => packages[0], []);
 
-  const handleOpenCheckout = (packageId: string) => {
-    setSelectedPackageId(packageId);
-    setIsCheckoutOpen(true);
+  const handleOpenCheckout = () => {
+    window.location.href = 'http://pay.chargily.com/payment-links/01kxxf2gbc2me6amks3jv4zznj';
   };
 
   return (
@@ -132,7 +128,7 @@ export default function App() {
 
             <div className="pt-1">
               <button
-                onClick={() => handleOpenCheckout(activePackage.id)}
+                onClick={handleOpenCheckout}
                 className="btn-3d-lime w-full py-4 md:py-4.5 text-black font-sans font-black text-lg md:text-xl tracking-wide flex items-center justify-center gap-3 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#D2FE2E]/70"
               >
                 <span>اشترِ الدليل الآن – 700 دج</span>
@@ -196,19 +192,13 @@ export default function App() {
             {activePackage.price} دج
           </span>
           <button
-            onClick={() => handleOpenCheckout(activePackage.id)}
+            onClick={handleOpenCheckout}
             className="font-sans font-black text-sm md:text-base tracking-wider text-black uppercase cursor-pointer"
           >
             احصل على الكتاب
           </button>
         </div>
       </div>
-
-      <CheckoutSimulator
-        isOpen={isCheckoutOpen}
-        onClose={() => setIsCheckoutOpen(false)}
-        selectedPackageId={selectedPackageId}
-      />
     </div>
   );
 }
