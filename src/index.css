@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "IBM Plex Sans Arabic", sans-serif;
+  --font-serif: "IBM Plex Sans Arabic", serif;
+  --font-italiana: "IBM Plex Sans Arabic", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom scrollbars and aesthetic refinements */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: #FAFAFA;
+  color: #0A0A0A;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(37, 99, 235, 0.15);
+  color: #2563eb;
+}
+
+/* Base scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Marquee - smooth and consistent */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 18s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Skeuomorphic/3D Buttons */
+.btn-3d-black {
+  position: relative;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  box-shadow: 0 4px 0 #000000;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  cursor: pointer;
+}
+.btn-3d-black:hover {
+  background-color: #0c0c0c;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #000000;
+}
+.btn-3d-black:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #000000;
+}
+
+.btn-3d-lime {
+  position: relative;
+  background-color: #D2FE2E;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  box-shadow: 0 4px 0 #000000;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  cursor: pointer;
+}
+.btn-3d-lime:hover {
+  background-color: #c5ee23;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #000000;
+}
+.btn-3d-lime:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #000000;
+}
+
+.btn-3d-preset-active {
+  position: relative;
+  background-color: #000000;
+  color: #D2FE2E;
+  border: 1.5px solid #000000;
+  border-radius: 10px;
+  box-shadow: 0 3px 0 #000000;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  cursor: pointer;
+}
+.btn-3d-preset-active:hover {
+  transform: translateY(-0.5px);
+  box-shadow: 0 3.5px 0 #000000;
+}
+.btn-3d-preset-active:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #000000;
+}
+
+.btn-3d-preset-inactive {
+  position: relative;
+  background-color: #ffffff;
+  color: #374151;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  box-shadow: 0 3px 0 #e5e7eb;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  cursor: pointer;
+}
+.btn-3d-preset-inactive:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+  box-shadow: 0 3px 0 #d1d5db;
+  transform: translateY(-0.5px);
+}
+.btn-3d-preset-inactive:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #e5e7eb;
+}
+
+/* Hide scrollbar for horizontal scroll carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Fade in animation for image slideshow */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+

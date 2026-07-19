@@ -1,0 +1,6 @@
+{
+  "name": "Ebook Sales Page",
+  "description": "A premium high-converting SaaS-style landing page for digital products and ebooks, optimized with CRO principles, interactive calculators, and live checkout simulator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
