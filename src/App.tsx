@@ -11,7 +11,7 @@ import img3 from './assets/images/product image 3.png';
 export default function App() {
   const [imgIndex, setImgIndex] = useState(0);
   const [showSticky, setShowSticky] = useState(true);
-  const images = [img1, img2, img3];
+  const images = [img2, img1, img3];
   const productRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
