@@ -18,13 +18,13 @@ export default function ThankYou() {
 
         <div className="p-5 md:p-8 flex flex-col items-center justify-center text-center space-y-5">
           <h1 className="font-sans text-lg md:text-xl font-black tracking-tighter leading-[1.2] text-black">
-            تم تأكيد طلبك بنجاح!
+            قرارك كان صحيح
           </h1>
 
           <button
             className="btn-3d-lime w-full px-6 py-3 text-black font-sans font-black text-sm md:text-base tracking-wide flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#D2FE2E]/70"
           >
-            <span>تحميل دليل يوتيوب شورتس (PDF)</span>
+            <span>تحميل دليل يوتيوب شورتس</span>
             <ArrowRight className="w-4 h-4 rotate-180" />
           </button>
 
