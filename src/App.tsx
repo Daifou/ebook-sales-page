@@ -32,9 +32,11 @@ function LandingPage() {
     return () => observer.disconnect();
   }, []);
 
+  const [loading, setLoading] = useState(false);
   const activePackage = useMemo(() => packages[0], []);
 
   const handleOpenCheckout = async () => {
+    setLoading(true);
     try {
       if (typeof fbq !== 'undefined') {
         fbq('track', 'InitiateCheckout');
@@ -46,10 +48,14 @@ function LandingPage() {
       if (data.checkout_url) {
         window.location.href = data.checkout_url;
       } else {
+        alert('خطأ في إنشاء رابط الدفع: ' + JSON.stringify(data));
         console.error('Chargily API error:', data);
       }
     } catch (err) {
+      alert('تعذر الاتصال بخادم الدفع: ' + err.message);
       console.error('Checkout error:', err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -146,9 +152,10 @@ function LandingPage() {
             <div className="pt-1">
               <button
                 onClick={handleOpenCheckout}
-                className="btn-3d-lime w-full py-4 md:py-4.5 text-black font-sans font-black text-lg md:text-xl tracking-wide flex items-center justify-center gap-3 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#D2FE2E]/70"
+                disabled={loading}
+                className="btn-3d-lime w-full py-4 md:py-4.5 text-black font-sans font-black text-lg md:text-xl tracking-wide flex items-center justify-center gap-3 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#D2FE2E]/70 disabled:opacity-50"
               >
-                <span>اشترِ الدليل الآن – 700 دج</span>
+                <span>{loading ? 'جاري التحويل...' : 'اشترِ الدليل الآن – 700 دج'}</span>
                 <ArrowRight className="w-5.5 h-5.5 rotate-180" />
               </button>
             </div>
@@ -210,9 +217,10 @@ function LandingPage() {
           </span>
           <button
             onClick={handleOpenCheckout}
-            className="font-sans font-black text-sm md:text-base tracking-wider text-black uppercase cursor-pointer"
+            disabled={loading}
+            className="font-sans font-black text-sm md:text-base tracking-wider text-black uppercase cursor-pointer disabled:opacity-50"
           >
-            احصل على الكتاب
+            {loading ? 'جاري التحويل...' : 'احصل على الكتاب'}
           </button>
         </div>
       </div>
