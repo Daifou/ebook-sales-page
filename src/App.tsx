@@ -43,13 +43,17 @@ function LandingPage() {
       }
 
       const res = await fetch('/api/create-checkout', { method: 'POST' });
+      if (!res.ok) {
+        const text = await res.text();
+        alert('خطأ ' + res.status + ': ' + text.slice(0, 200));
+        return;
+      }
       const data = await res.json();
 
       if (data.checkout_url) {
         window.location.href = data.checkout_url;
       } else {
-        alert('خطأ في إنشاء رابط الدفع: ' + JSON.stringify(data));
-        console.error('Chargily API error:', data);
+        alert('خطأ في إنشاء رابط الدفع: ' + JSON.stringify(data).slice(0, 300));
       }
     } catch (err) {
       alert('تعذر الاتصال بخادم الدفع: ' + err.message);
