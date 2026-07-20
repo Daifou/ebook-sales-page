@@ -35,32 +35,8 @@ function LandingPage() {
   const [loading, setLoading] = useState(false);
   const activePackage = useMemo(() => packages[0], []);
 
-  const handleOpenCheckout = async () => {
-    setLoading(true);
-    try {
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'InitiateCheckout');
-      }
-
-      const res = await fetch('/api/create-checkout', { method: 'POST' });
-      if (!res.ok) {
-        const text = await res.text();
-        alert('خطأ ' + res.status + ': ' + text.slice(0, 200));
-        return;
-      }
-      const data = await res.json();
-
-      if (data.checkout_url) {
-        window.location.href = data.checkout_url;
-      } else {
-        alert('خطأ في إنشاء رابط الدفع: ' + JSON.stringify(data).slice(0, 300));
-      }
-    } catch (err) {
-      alert('تعذر الاتصال بخادم الدفع: ' + err.message);
-      console.error('Checkout error:', err);
-    } finally {
-      setLoading(false);
-    }
+  const handleOpenCheckout = () => {
+    window.location.href = 'https://sofizpay.com/create-payment-link/?account=GCXLJJ36YWR7HH5NSGENKE62UEJ3ZQ5V6QJTA3RQNPAK5E2XURYA4O2S&amount=700&memo=&return_url=https%3A%2F%2Ffaydbatma.shop%2Fthankyou';
   };
 
   return (
@@ -159,7 +135,7 @@ function LandingPage() {
                 disabled={loading}
                 className="btn-3d-lime w-full py-4 md:py-4.5 text-black font-sans font-black text-lg md:text-xl tracking-wide flex items-center justify-center gap-3 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#D2FE2E]/70 disabled:opacity-50"
               >
-                <span>{loading ? 'جاري التحويل...' : 'اشترِ الدليل الآن – 700 دج'}</span>
+                <span>اشترِ الدليل الآن – 700 دج</span>
                 <ArrowRight className="w-5.5 h-5.5 rotate-180" />
               </button>
             </div>
