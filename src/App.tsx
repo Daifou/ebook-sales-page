@@ -1,14 +1,16 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Check, Star, ArrowRight } from 'lucide-react';
 
 import ConversionCalculator from './components/ConversionCalculator';
 import ReviewsSection from './components/ReviewsSection';
+import ThankYou from './components/ThankYou';
 import { packages } from './data';
 import img1 from './assets/images/image_product.png';
 import img2 from './assets/images/product image 4.png';
 import img3 from './assets/images/product image 3.png';
 
-export default function App() {
+function LandingPage() {
   const [imgIndex, setImgIndex] = useState(0);
   const [showSticky, setShowSticky] = useState(true);
   const images = [img2, img1, img3];
@@ -200,5 +202,14 @@ export default function App() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/thankyou" element={<ThankYou />} />
+    </Routes>
   );
 }
