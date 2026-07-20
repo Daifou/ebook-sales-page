@@ -1,6 +1,6 @@
 export async function onRequestPost(context) {
   try {
-    const response = await fetch('https://pay.chargily.net/test/api/v2/checkouts', {
+    const response = await fetch('https://pay.chargily.net/api/v2/checkouts', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${context.env.CHARGILY_SECRET_KEY}`,
