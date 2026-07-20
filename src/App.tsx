@@ -33,7 +33,7 @@ export default function App() {
   const activePackage = useMemo(() => packages[0], []);
 
   const handleOpenCheckout = () => {
-    window.location.href = 'http://pay.chargily.com/payment-links/01kxxf2gbc2me6amks3jv4zznj';
+    window.location.href = 'http://pay.chargily.com/test/payment-links/01kx8tfjcwfe215z33wg8dn262';
   };
 
   return (
