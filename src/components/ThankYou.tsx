@@ -21,12 +21,14 @@ export default function ThankYou() {
             قرارك كان صحيح
           </h1>
 
-          <button
-            className="btn-3d-lime w-full px-6 py-3 text-black font-sans font-black text-sm md:text-base tracking-wide flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#D2FE2E]/70"
+          <a
+            href="/ebook-shorts-guide.pdf"
+            download="دليل_يوتيوب_شورتس.pdf"
+            className="btn-3d-lime w-full px-6 py-3 text-black font-sans font-black text-sm md:text-base tracking-wide flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#D2FE2E]/70 no-underline"
           >
             <span>تحميل دليل يوتيوب شورتس</span>
             <ArrowRight className="w-4 h-4 rotate-180" />
-          </button>
+          </a>
 
           <p className="text-[8px] font-sans tracking-wide text-neutral-400">
             * وصول آمن / تحميل مباشر بدون قيود
