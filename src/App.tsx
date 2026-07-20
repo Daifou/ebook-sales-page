@@ -34,8 +34,23 @@ function LandingPage() {
 
   const activePackage = useMemo(() => packages[0], []);
 
-  const handleOpenCheckout = () => {
-    window.location.href = 'https://sofizpay.com/create-payment-link/?account=GCXLJJ36YWR7HH5NSGENKE62UEJ3ZQ5V6QJTA3RQNPAK5E2XURYA4O2S&amount=700&memo=&return_url=https%3A%2F%2Ffaydbatma.shop%2Fthankyou';
+  const handleOpenCheckout = async () => {
+    try {
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'InitiateCheckout');
+      }
+
+      const res = await fetch('/api/create-checkout', { method: 'POST' });
+      const data = await res.json();
+
+      if (data.checkout_url) {
+        window.location.href = data.checkout_url;
+      } else {
+        console.error('Chargily API error:', data);
+      }
+    } catch (err) {
+      console.error('Checkout error:', err);
+    }
   };
 
   return (
@@ -210,6 +225,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/thankyou" element={<ThankYou />} />
+      <Route path="/thank-you" element={<ThankYou />} />
     </Routes>
   );
 }
