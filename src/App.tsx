@@ -37,9 +37,15 @@ function LandingPage() {
 
   const handleOpenCheckout = () => {
     if (typeof fbq !== 'undefined') {
-      fbq('track', 'InitiateCheckout');
+      fbq('track', 'InitiateCheckout', {
+        value: 700,
+        currency: 'DZD',
+        content_name: 'Fayd Batma Ebook'
+      });
     }
-    window.location.href = 'https://sofizpay.com/create-payment-link/?account=GCXLJJ36YWR7HH5NSGENKE62UEJ3ZQ5V6QJTA3RQNPAK5E2XURYA4O2S&amount=700&memo=&return_url=https%3A%2F%2Ffaydbatma.shop%2Fthankyou';
+    setTimeout(function() {
+      window.location.href = 'https://sofizpay.com/create-payment-link/?account=GCXLJJ36YWR7HH5NSGENKE62UEJ3ZQ5V6QJTA3RQNPAK5E2XURYA4O2S&amount=700&memo=&return_url=https%3A%2F%2Ffaydbatma.shop%2Fthankyou';
+    }, 300);
   };
 
   return (

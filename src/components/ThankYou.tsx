@@ -1,6 +1,25 @@
+import { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 export default function ThankYou() {
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Purchase', {
+        value: 700,
+        currency: 'DZD',
+        content_name: 'Fayd Batma Ebook'
+      });
+    }
+
+    return () => {
+      document.head.removeChild(meta);
+    };
+  }, []);
   return (
     <div dir="rtl" className="min-h-screen bg-[#FDFDFD] font-sans text-[#0A0A0A] flex items-center justify-center px-4 py-8 relative overflow-hidden">
       {/* Grid pattern background */}
