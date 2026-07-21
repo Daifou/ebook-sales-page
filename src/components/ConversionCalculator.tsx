@@ -224,10 +224,10 @@ export default function ConversionCalculator() {
                 <p className="text-[10px] text-black/60 font-bold uppercase tracking-wider">
                   الإمكانية السنوية
                 </p>
-                <p className="text-xl font-mono font-black text-black">
+                <p className="text-xs md:text-sm font-mono font-black text-black break-all">
                   +${stats.totalAnnual.toLocaleString()}
                 </p>
-                <p className="text-xs font-sans font-bold text-black/70">
+                <p className="text-[10px] md:text-xs font-sans font-bold text-black/70 break-all">
                   +{stats.totalAnnualDzd.toLocaleString()} دج
                 </p>
               </div>

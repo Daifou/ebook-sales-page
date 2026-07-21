@@ -205,11 +205,10 @@ function LandingPage() {
             {activePackage.price} دج
           </span>
           <button
-            onClick={handleOpenCheckout}
-            disabled={loading}
-            className="font-sans font-black text-sm md:text-base tracking-wider text-black uppercase cursor-pointer disabled:opacity-50"
+            onClick={() => productRef.current?.scrollIntoView({ behavior: 'smooth' })}
+            className="font-sans font-black text-sm md:text-base tracking-wider text-black uppercase cursor-pointer"
           >
-            {loading ? 'جاري التحويل...' : 'احصل على الكتاب'}
+            اشترِ الدليل
           </button>
         </div>
       </div>
