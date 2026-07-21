@@ -5,6 +5,7 @@ import { Check, Star, ArrowRight } from 'lucide-react';
 import ConversionCalculator from './components/ConversionCalculator';
 import ReviewsSection from './components/ReviewsSection';
 import ThankYou from './components/ThankYou';
+import TableOfContents from './components/TableOfContents';
 import { packages } from './data';
 import img1 from './assets/images/image_product.png';
 import img2 from './assets/images/product image 4.png';
@@ -154,6 +155,8 @@ function LandingPage() {
                 * وصول آمن / تحميل مباشر بدون قيود
               </span>
             </div>
+
+            <TableOfContents />
           </div>
         </div>
       </main>
