@@ -151,7 +151,7 @@ function LandingPage() {
             </div>
 
             <div className="pt-1 flex flex-col items-center justify-center text-center">
-              <span className="text-[10px] md:text-[11px] font-sans tracking-wide text-neutral-500">
+              <span className="text-xs md:text-sm font-sans tracking-wide text-neutral-500 font-bold">
                 دفع آمن 100% عبر البطاقة الذهبية مع ضمان استرجاع الأموال
               </span>
             </div>
